@@ -313,8 +313,7 @@ Pascal Getreuer's Select Word feature for efficient text selection:
 ## Build & Flash
 
 ```bash
-# Build firmware
-cd /Users/sebastianvang/Developer/Keyboard/unicorne/qmk-firmware
+# Build firmware (from QMK root)
 make boardsource/unicorne:default
 
 # Output: boardsource_unicorne_default.uf2
