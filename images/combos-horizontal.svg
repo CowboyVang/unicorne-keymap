@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320">
+  <defs>
+    <style>
+      .bg { fill: #242933; }
+      .key-muted { fill: #2E3440; stroke: #3B4252; stroke-width: 1; }
+      .key-highlight { fill: #3B4252; stroke-width: 2; }
+      .key-inner { fill: none; stroke-width: 2; }
+      .text-primary { fill: #ECEFF4; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .text-muted { fill: #4C566A; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .title { fill: #D8DEE9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; font-weight: 600; }
+      .combo-line { stroke-width: 3; stroke-linecap: round; fill: none; }
+      .combo-label-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="820" height="320"/>
+
+  <!-- Title -->
+  <text class="title" x="410" y="22" text-anchor="middle">Horizontal Combos</text>
+
+  <!-- ===== LEFT HAND ===== -->
+
+  <!-- Muted keys for context - Row 0 -->
+  <rect class="key-muted" x="60" y="45" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="110" y="40" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="132" y="68" text-anchor="middle" font-size="14">Q</text>
+  <rect class="key-muted" x="160" y="30" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="182" y="58" text-anchor="middle" font-size="14">W</text>
+  <rect class="key-muted" x="310" y="40" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="332" y="68" text-anchor="middle" font-size="14">B</text>
+
+  <!-- Row 1 muted -->
+  <rect class="key-muted" x="60" y="95" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="110" y="90" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="132" y="118" text-anchor="middle" font-size="14">A</text>
+  <rect class="key-muted" x="160" y="80" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="182" y="108" text-anchor="middle" font-size="14">R</text>
+  <rect class="key-muted" x="210" y="75" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="232" y="103" text-anchor="middle" font-size="14">S</text>
+  <rect class="key-muted" x="260" y="85" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="282" y="113" text-anchor="middle" font-size="14">T</text>
+  <rect class="key-muted" x="310" y="90" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="332" y="118" text-anchor="middle" font-size="14">G</text>
+
+  <!-- Row 2 muted outer keys -->
+  <rect class="key-muted" x="60" y="145" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="110" y="140" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="132" y="168" text-anchor="middle" font-size="14">Z</text>
+
+  <!-- Left Thumb cluster (muted) -->
+  <rect class="key-muted" x="210" y="225" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="260" y="225" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="310" y="225" width="44" height="44" rx="6"/>
+
+  <!-- ===== COMBO 1: F+P = DEL (Cyan #88C0D0) ===== -->
+  <!-- F: X=210, Y=25 -->
+  <!-- P: X=260, Y=35 -->
+  <rect class="key-highlight" x="210" y="25" width="44" height="44" rx="6" stroke="#88C0D0"/>
+  <text class="text-primary" x="232" y="53" text-anchor="middle" font-size="14">F</text>
+  <rect class="key-highlight" x="260" y="35" width="44" height="44" rx="6" stroke="#88C0D0"/>
+  <text class="text-primary" x="282" y="63" text-anchor="middle" font-size="14">P</text>
+  <line class="combo-line" x1="254" y1="47" x2="260" y2="57" stroke="#88C0D0"/>
+  <!-- Label centered between F and P -->
+  <rect fill="#88C0D0" x="237" y="2" width="40" height="18" rx="9"/>
+  <text class="combo-label-text" x="257" y="14" text-anchor="middle" font-size="9" fill="#242933">DEL</text>
+
+  <!-- ===== COMBO 2: X+C = UNDO (Red #BF616A) ===== -->
+  <!-- X: X=160, Y=130 -->
+  <!-- C: X=210, Y=125 - SHARED with REDO, outer border Red, inner border Orange -->
+  <rect class="key-highlight" x="160" y="130" width="44" height="44" rx="6" stroke="#BF616A"/>
+  <text class="text-primary" x="182" y="158" text-anchor="middle" font-size="14">X</text>
+  <!-- C key with dual borders -->
+  <rect class="key-highlight" x="210" y="125" width="44" height="44" rx="6" stroke="#BF616A"/>
+  <rect class="key-inner" x="214" y="129" width="36" height="36" rx="4" stroke="#D08770"/>
+  <text class="text-primary" x="232" y="153" text-anchor="middle" font-size="14">C</text>
+  <line class="combo-line" x1="204" y1="152" x2="210" y2="147" stroke="#BF616A"/>
+  <!-- Label centered between X and C -->
+  <rect fill="#BF616A" x="162" y="180" width="48" height="18" rx="9"/>
+  <text class="combo-label-text" x="186" y="192" text-anchor="middle" font-size="9" fill="#242933">UNDO</text>
+
+  <!-- ===== COMBO 3: C+D = REDO (Orange #D08770) ===== -->
+  <!-- C: already drawn with dual borders above -->
+  <!-- D: X=260, Y=135 - SHARED with PASTE, outer border Orange, inner border Yellow -->
+  <rect class="key-highlight" x="260" y="135" width="44" height="44" rx="6" stroke="#D08770"/>
+  <rect class="key-inner" x="264" y="139" width="36" height="36" rx="4" stroke="#EBCB8B"/>
+  <text class="text-primary" x="282" y="163" text-anchor="middle" font-size="14">D</text>
+  <line class="combo-line" x1="254" y1="147" x2="260" y2="157" stroke="#D08770"/>
+  <!-- Label centered between C and D (midpoint X = (232+282)/2 = 257) -->
+  <rect fill="#D08770" x="233" y="200" width="48" height="18" rx="9"/>
+  <text class="combo-label-text" x="257" y="212" text-anchor="middle" font-size="9" fill="#242933">REDO</text>
+
+  <!-- ===== COMBO 4: D+V = PASTE (Yellow #EBCB8B) ===== -->
+  <!-- D: already drawn with dual borders above -->
+  <!-- V: X=310, Y=140 -->
+  <rect class="key-highlight" x="310" y="140" width="44" height="44" rx="6" stroke="#EBCB8B"/>
+  <text class="text-primary" x="332" y="168" text-anchor="middle" font-size="14">V</text>
+  <line class="combo-line" x1="304" y1="157" x2="310" y2="162" stroke="#EBCB8B"/>
+  <!-- Label centered between D and V (midpoint X = (282+332)/2 = 307) -->
+  <rect fill="#EBCB8B" x="283" y="180" width="48" height="18" rx="9"/>
+  <text class="combo-label-text" x="307" y="192" text-anchor="middle" font-size="9" fill="#242933">PASTE</text>
+
+  <!-- ===== RIGHT HAND ===== -->
+
+  <!-- Muted keys - Row 0 -->
+  <rect class="key-muted" x="460" y="40" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="482" y="68" text-anchor="middle" font-size="14">J</text>
+  <rect class="key-muted" x="660" y="40" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="682" y="68" text-anchor="middle" font-size="14">;</text>
+  <rect class="key-muted" x="710" y="45" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="732" y="73" text-anchor="middle" font-size="14">\</text>
+
+  <!-- Muted keys - Row 1 -->
+  <rect class="key-muted" x="460" y="90" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="482" y="118" text-anchor="middle" font-size="14">M</text>
+  <rect class="key-muted" x="510" y="85" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="532" y="113" text-anchor="middle" font-size="14">N</text>
+  <rect class="key-muted" x="560" y="75" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="582" y="103" text-anchor="middle" font-size="14">E</text>
+  <rect class="key-muted" x="610" y="80" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="632" y="108" text-anchor="middle" font-size="14">I</text>
+  <rect class="key-muted" x="660" y="90" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="682" y="118" text-anchor="middle" font-size="14">O</text>
+  <rect class="key-muted" x="710" y="95" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="732" y="123" text-anchor="middle" font-size="14">'</text>
+
+  <!-- Muted keys - Row 2 -->
+  <rect class="key-muted" x="460" y="140" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="482" y="168" text-anchor="middle" font-size="14">K</text>
+  <rect class="key-muted" x="510" y="135" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="532" y="163" text-anchor="middle" font-size="14">H</text>
+  <rect class="key-muted" x="560" y="125" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="582" y="153" text-anchor="middle" font-size="14">,</text>
+  <rect class="key-muted" x="610" y="130" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="632" y="158" text-anchor="middle" font-size="14">.</text>
+  <rect class="key-muted" x="660" y="140" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="682" y="168" text-anchor="middle" font-size="14">/</text>
+  <rect class="key-muted" x="710" y="145" width="44" height="44" rx="6"/>
+
+  <!-- Right Thumb cluster (muted) -->
+  <rect class="key-muted" x="460" y="225" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="510" y="225" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="560" y="225" width="44" height="44" rx="6"/>
+
+  <!-- ===== COMBO 5: L+U = / (Green #A3BE8C) ===== -->
+  <!-- L: X=510, Y=35 -->
+  <!-- U: X=560, Y=25 - SHARED with !, outer border Green, inner border Purple -->
+  <rect class="key-highlight" x="510" y="35" width="44" height="44" rx="6" stroke="#A3BE8C"/>
+  <text class="text-primary" x="532" y="63" text-anchor="middle" font-size="14">L</text>
+  <!-- U key with dual borders -->
+  <rect class="key-highlight" x="560" y="25" width="44" height="44" rx="6" stroke="#A3BE8C"/>
+  <rect class="key-inner" x="564" y="29" width="36" height="36" rx="4" stroke="#B48EAD"/>
+  <text class="text-primary" x="582" y="53" text-anchor="middle" font-size="14">U</text>
+  <line class="combo-line" x1="554" y1="57" x2="560" y2="47" stroke="#A3BE8C"/>
+  <!-- Label centered between L and U (midpoint X = (532+582)/2 = 557) -->
+  <rect fill="#A3BE8C" x="537" y="2" width="40" height="18" rx="9"/>
+  <text class="combo-label-text" x="557" y="14" text-anchor="middle" font-size="9" fill="#242933">/</text>
+
+  <!-- ===== COMBO 6: U+Y = ! (Purple #B48EAD) ===== -->
+  <!-- U: already drawn with dual borders above -->
+  <!-- Y: X=610, Y=30 -->
+  <rect class="key-highlight" x="610" y="30" width="44" height="44" rx="6" stroke="#B48EAD"/>
+  <text class="text-primary" x="632" y="58" text-anchor="middle" font-size="14">Y</text>
+  <line class="combo-line" x1="604" y1="47" x2="610" y2="52" stroke="#B48EAD"/>
+  <!-- Label centered between U and Y (midpoint X = (582+632)/2 = 607) -->
+  <rect fill="#B48EAD" x="587" y="2" width="40" height="18" rx="9"/>
+  <text class="combo-label-text" x="607" y="14" text-anchor="middle" font-size="9" fill="#242933">!</text>
+
+  <!-- Legend -->
+  <text class="text-muted" x="60" y="305" font-size="9">Legend:</text>
+  <rect fill="#88C0D0" x="105" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="120" y="305" font-size="8">DEL</text>
+  <rect fill="#BF616A" x="150" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="165" y="305" font-size="8">UNDO</text>
+  <rect fill="#D08770" x="205" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="220" y="305" font-size="8">REDO</text>
+  <rect fill="#EBCB8B" x="260" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="275" y="305" font-size="8">PASTE</text>
+  <rect fill="#A3BE8C" x="320" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="335" y="305" font-size="8">/</text>
+  <rect fill="#B48EAD" x="355" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="370" y="305" font-size="8">!</text>
+
+  <!-- Dual border explanation -->
+  <text class="text-muted" x="420" y="305" font-size="8">Dual borders = key used in two combos</text>
+
+  <!-- Attribution -->
+  <text fill="#4C566A" x="760" y="305" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9">Nordic.nvim</text>
+</svg>

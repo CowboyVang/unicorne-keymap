@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 310">
+  <defs>
+    <style>
+      .bg { fill: #242933; }
+      .key-alpha { fill: #3B4252; stroke: #4C566A; stroke-width: 1; }
+      .key-mod { fill: #434C5E; stroke: #4C566A; stroke-width: 1; }
+      .key-thumb-outer { fill: #2E3440; stroke: #4C566A; stroke-width: 1; }
+      .key-thumb-inner { fill: #3B4252; stroke: #4C566A; stroke-width: 1; }
+      .key-transparent { fill: #2E3440; stroke: #4C566A; stroke-width: 1; stroke-dasharray: 4,2; }
+      .text-primary { fill: #ECEFF4; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .text-hold { fill: #88C0D0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .text-layer { fill: #A3BE8C; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .text-muted { fill: #4C566A; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .title { fill: #D8DEE9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="820" height="310"/>
+
+  <!-- Title -->
+  <text class="title" x="410" y="18" text-anchor="middle">Layer 1: Navigation &amp; System Orchestrator</text>
+
+  <!-- ===== LEFT HAND ===== -->
+
+  <!-- Row 0 - Shift+F15-F20 -->
+  <!-- Col 0: X=10, Y=30+0=30 -->
+  <rect class="key-mod" x="10" y="30" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="32" y="48" text-anchor="middle" font-size="8">S+F15</text>
+
+  <!-- Col 1: X=60, Y=30-5=25 -->
+  <rect class="key-mod" x="60" y="25" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="82" y="48" text-anchor="middle" font-size="8">S+F16</text>
+
+  <!-- Col 2: X=110, Y=30-15=15 -->
+  <rect class="key-mod" x="110" y="15" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="132" y="38" text-anchor="middle" font-size="8">S+F17</text>
+
+  <!-- Col 3: X=160, Y=30-20=10 -->
+  <rect class="key-mod" x="160" y="10" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="182" y="33" text-anchor="middle" font-size="8">S+F18</text>
+
+  <!-- Col 4: X=210, Y=30-10=20 -->
+  <rect class="key-mod" x="210" y="20" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="232" y="43" text-anchor="middle" font-size="8">S+F19</text>
+
+  <!-- Col 5: X=260, Y=30-5=25 -->
+  <rect class="key-mod" x="260" y="25" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="282" y="48" text-anchor="middle" font-size="8">S+F20</text>
+
+  <!-- Row 1 - F15-F20 with home row mods -->
+  <!-- Col 0: X=10, Y=80+0=80 - F15 -->
+  <rect class="key-alpha" x="10" y="80" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="32" y="108" text-anchor="middle" font-size="10">F15</text>
+
+  <!-- Col 1: X=60, Y=80-5=75 - LCTL_T(F16) -->
+  <rect class="key-mod" x="60" y="75" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="82" y="93" text-anchor="middle" font-size="10">F16</text>
+  <text class="text-hold" x="82" y="107" text-anchor="middle" font-size="7">CTRL</text>
+
+  <!-- Col 2: X=110, Y=80-15=65 - LALT_T(F17) -->
+  <rect class="key-mod" x="110" y="65" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="132" y="83" text-anchor="middle" font-size="10">F17</text>
+  <text class="text-hold" x="132" y="97" text-anchor="middle" font-size="7">ALT</text>
+
+  <!-- Col 3: X=160, Y=80-20=60 - LSFT_T(F18) -->
+  <rect class="key-mod" x="160" y="60" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="182" y="78" text-anchor="middle" font-size="10">F18</text>
+  <text class="text-hold" x="182" y="92" text-anchor="middle" font-size="7">SHIFT</text>
+
+  <!-- Col 4: X=210, Y=80-10=70 - LGUI_T(F19) -->
+  <rect class="key-mod" x="210" y="70" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="232" y="88" text-anchor="middle" font-size="10">F19</text>
+  <text class="text-hold" x="232" y="102" text-anchor="middle" font-size="7">CMD</text>
+
+  <!-- Col 5: X=260, Y=80-5=75 - F20 -->
+  <rect class="key-alpha" x="260" y="75" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="282" y="103" text-anchor="middle" font-size="10">F20</text>
+
+  <!-- Row 2 - Cmd+Shift+F15-F20 -->
+  <!-- Col 0: X=10, Y=130+0=130 -->
+  <rect class="key-mod" x="10" y="130" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="32" y="151" text-anchor="middle" font-size="6">⌘S+F15</text>
+
+  <!-- Col 1: X=60, Y=130-5=125 -->
+  <rect class="key-mod" x="60" y="125" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="82" y="148" text-anchor="middle" font-size="6">⌘S+F16</text>
+
+  <!-- Col 2: X=110, Y=130-15=115 -->
+  <rect class="key-mod" x="110" y="115" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="132" y="138" text-anchor="middle" font-size="6">⌘S+F17</text>
+
+  <!-- Col 3: X=160, Y=130-20=110 -->
+  <rect class="key-mod" x="160" y="110" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="182" y="133" text-anchor="middle" font-size="6">⌘S+F18</text>
+
+  <!-- Col 4: X=210, Y=130-10=120 -->
+  <rect class="key-mod" x="210" y="120" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="232" y="143" text-anchor="middle" font-size="6">⌘S+F19</text>
+
+  <!-- Col 5: X=260, Y=130-5=125 -->
+  <rect class="key-mod" x="260" y="125" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="282" y="148" text-anchor="middle" font-size="6">⌘S+F20</text>
+
+  <!-- Left Thumbs - Transparent -->
+  <!-- Thumb 0: X=160, Y=210 -->
+  <rect class="key-transparent" x="160" y="210" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="182" y="238" text-anchor="middle" font-size="14">▽</text>
+
+  <!-- Thumb 1: X=210, Y=210 -->
+  <rect class="key-transparent" x="210" y="210" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="232" y="238" text-anchor="middle" font-size="14">▽</text>
+
+  <!-- Thumb 2: X=260, Y=210 -->
+  <rect class="key-transparent" x="260" y="210" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="282" y="238" text-anchor="middle" font-size="14">▽</text>
+
+  <!-- ===== RIGHT HAND ===== -->
+
+  <!-- Row 0 - Navigation + Select Word -->
+  <!-- Col 0: X=460, Y=30-5=25 - PGUP -->
+  <rect class="key-alpha" x="460" y="25" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="482" y="50" text-anchor="middle" font-size="9">PGUP</text>
+
+  <!-- Col 1: X=510, Y=30-10=20 - SELWBAK -->
+  <rect class="key-mod" x="510" y="20" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="532" y="40" text-anchor="middle" font-size="7">SEL</text>
+  <text class="text-primary" x="532" y="50" text-anchor="middle" font-size="7">BAK</text>
+
+  <!-- Col 2: X=560, Y=30-20=10 - SELWORD -->
+  <rect class="key-mod" x="560" y="10" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="582" y="30" text-anchor="middle" font-size="7">SEL</text>
+  <text class="text-primary" x="582" y="40" text-anchor="middle" font-size="7">WORD</text>
+
+  <!-- Col 3: X=610, Y=30-15=15 - SELLINE -->
+  <rect class="key-mod" x="610" y="15" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="632" y="35" text-anchor="middle" font-size="7">SEL</text>
+  <text class="text-primary" x="632" y="45" text-anchor="middle" font-size="7">LINE</text>
+
+  <!-- Col 4: X=660, Y=30-5=25 - END -->
+  <rect class="key-alpha" x="660" y="25" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="682" y="50" text-anchor="middle" font-size="10">END</text>
+
+  <!-- Col 5: X=710, Y=30+0=30 - VOLU -->
+  <rect class="key-alpha" x="710" y="30" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="732" y="55" text-anchor="middle" font-size="8">VOL+</text>
+
+  <!-- Row 1 - Arrow keys -->
+  <!-- Col 0: X=460, Y=80-5=75 - PGDN -->
+  <rect class="key-alpha" x="460" y="75" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="482" y="100" text-anchor="middle" font-size="9">PGDN</text>
+
+  <!-- Col 1: X=510, Y=80-10=70 - LEFT -->
+  <rect class="key-alpha" x="510" y="70" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="532" y="98" text-anchor="middle" font-size="14">←</text>
+
+  <!-- Col 2: X=560, Y=80-20=60 - DOWN -->
+  <rect class="key-alpha" x="560" y="60" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="582" y="88" text-anchor="middle" font-size="14">↓</text>
+
+  <!-- Col 3: X=610, Y=80-15=65 - UP -->
+  <rect class="key-alpha" x="610" y="65" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="632" y="93" text-anchor="middle" font-size="14">↑</text>
+
+  <!-- Col 4: X=660, Y=80-5=75 - RIGHT -->
+  <rect class="key-alpha" x="660" y="75" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="682" y="103" text-anchor="middle" font-size="14">→</text>
+
+  <!-- Col 5: X=710, Y=80+0=80 - VOLD -->
+  <rect class="key-alpha" x="710" y="80" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="732" y="105" text-anchor="middle" font-size="8">VOL-</text>
+
+  <!-- Row 2 - Math operators -->
+  <!-- Col 0: X=460, Y=130-5=125 - HOME -->
+  <rect class="key-alpha" x="460" y="125" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="482" y="150" text-anchor="middle" font-size="9">HOME</text>
+
+  <!-- Col 1: X=510, Y=130-10=120 - MINS -->
+  <rect class="key-alpha" x="510" y="120" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="532" y="148" text-anchor="middle" font-size="14">-</text>
+
+  <!-- Col 2: X=560, Y=130-20=110 - UNDS -->
+  <rect class="key-alpha" x="560" y="110" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="582" y="138" text-anchor="middle" font-size="14">_</text>
+
+  <!-- Col 3: X=610, Y=130-15=115 - EQL -->
+  <rect class="key-alpha" x="610" y="115" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="632" y="143" text-anchor="middle" font-size="14">=</text>
+
+  <!-- Col 4: X=660, Y=130-5=125 - PLUS -->
+  <rect class="key-alpha" x="660" y="125" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="682" y="153" text-anchor="middle" font-size="14">+</text>
+
+  <!-- Col 5: X=710, Y=130+0=130 - MUTE -->
+  <rect class="key-alpha" x="710" y="130" width="44" height="44" rx="6"/>
+  <text class="text-primary" x="732" y="155" text-anchor="middle" font-size="8">MUTE</text>
+
+  <!-- Right Thumbs -->
+  <!-- Thumb 0: X=460, Y=210 - KC_LSFT -->
+  <rect class="key-thumb-outer" x="460" y="210" width="44" height="44" rx="6"/>
+  <rect class="key-thumb-inner" x="464" y="214" width="36" height="24" rx="4"/>
+  <text class="text-primary" x="482" y="230" text-anchor="middle" font-size="8">SHIFT</text>
+
+  <!-- Thumb 1: X=510, Y=210 - KC_BSPC -->
+  <rect class="key-thumb-outer" x="510" y="210" width="44" height="44" rx="6"/>
+  <rect class="key-thumb-inner" x="514" y="214" width="36" height="24" rx="4"/>
+  <text class="text-primary" x="532" y="230" text-anchor="middle" font-size="8">BSPC</text>
+
+  <!-- Thumb 2: X=560, Y=210 - QK_AREP -->
+  <rect class="key-thumb-outer" x="560" y="210" width="44" height="44" rx="6"/>
+  <rect class="key-thumb-inner" x="564" y="214" width="36" height="24" rx="4"/>
+  <text class="text-primary" x="582" y="230" text-anchor="middle" font-size="8">AREP</text>
+
+  <!-- Attribution -->
+  <text fill="#4C566A" x="410" y="300" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9">Nordic.nvim color scheme</text>
+</svg>

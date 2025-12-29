@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320">
+  <defs>
+    <style>
+      .bg { fill: #242933; }
+      .key-muted { fill: #2E3440; stroke: #3B4252; stroke-width: 1; }
+      .key-highlight { fill: #3B4252; stroke-width: 2; }
+      .text-primary { fill: #ECEFF4; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .text-muted { fill: #4C566A; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .title { fill: #D8DEE9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; font-weight: 600; }
+      .combo-line { stroke-width: 3; stroke-linecap: round; fill: none; }
+      .combo-label-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="820" height="320"/>
+
+  <!-- Title -->
+  <text class="title" x="410" y="22" text-anchor="middle">Vertical Combos</text>
+
+  <!-- ===== LEFT HAND ===== -->
+
+  <!-- Row 0 muted -->
+  <rect class="key-muted" x="60" y="45" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="110" y="40" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="132" y="68" text-anchor="middle" font-size="14">Q</text>
+  <rect class="key-muted" x="310" y="40" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="332" y="68" text-anchor="middle" font-size="14">B</text>
+
+  <!-- Row 1 muted -->
+  <rect class="key-muted" x="60" y="95" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="110" y="90" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="132" y="118" text-anchor="middle" font-size="14">A</text>
+  <rect class="key-muted" x="310" y="90" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="332" y="118" text-anchor="middle" font-size="14">G</text>
+
+  <!-- Row 2 muted -->
+  <rect class="key-muted" x="60" y="145" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="110" y="140" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="132" y="168" text-anchor="middle" font-size="14">Z</text>
+  <rect class="key-muted" x="160" y="130" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="182" y="158" text-anchor="middle" font-size="14">X</text>
+  <rect class="key-muted" x="210" y="125" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="232" y="153" text-anchor="middle" font-size="14">C</text>
+  <rect class="key-muted" x="260" y="135" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="282" y="163" text-anchor="middle" font-size="14">D</text>
+  <rect class="key-muted" x="310" y="140" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="332" y="168" text-anchor="middle" font-size="14">V</text>
+
+  <!-- Left Thumb cluster (muted) -->
+  <rect class="key-muted" x="210" y="225" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="260" y="225" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="310" y="225" width="44" height="44" rx="6"/>
+
+  <!-- ===== COMBO 1: W+R = ESC (Cyan #88C0D0) ===== -->
+  <rect class="key-highlight" x="160" y="30" width="44" height="44" rx="6" stroke="#88C0D0"/>
+  <text class="text-primary" x="182" y="58" text-anchor="middle" font-size="14">W</text>
+  <rect class="key-highlight" x="160" y="80" width="44" height="44" rx="6" stroke="#88C0D0"/>
+  <text class="text-primary" x="182" y="108" text-anchor="middle" font-size="14">R</text>
+  <line class="combo-line" x1="182" y1="74" x2="182" y2="80" stroke="#88C0D0"/>
+  <rect fill="#88C0D0" x="162" y="130" width="40" height="18" rx="9"/>
+  <text class="combo-label-text" x="182" y="142" text-anchor="middle" font-size="9" fill="#242933">ESC</text>
+
+  <!-- ===== COMBO 2: F+S = TAB (Red #BF616A) ===== -->
+  <rect class="key-highlight" x="210" y="25" width="44" height="44" rx="6" stroke="#BF616A"/>
+  <text class="text-primary" x="232" y="53" text-anchor="middle" font-size="14">F</text>
+  <rect class="key-highlight" x="210" y="75" width="44" height="44" rx="6" stroke="#BF616A"/>
+  <text class="text-primary" x="232" y="103" text-anchor="middle" font-size="14">S</text>
+  <line class="combo-line" x1="232" y1="69" x2="232" y2="75" stroke="#BF616A"/>
+  <rect fill="#BF616A" x="212" y="130" width="40" height="18" rx="9"/>
+  <text class="combo-label-text" x="232" y="142" text-anchor="middle" font-size="9" fill="#242933">TAB</text>
+
+  <!-- ===== COMBO 3: P+T = CW (Orange #D08770) ===== -->
+  <rect class="key-highlight" x="260" y="35" width="44" height="44" rx="6" stroke="#D08770"/>
+  <text class="text-primary" x="282" y="63" text-anchor="middle" font-size="14">P</text>
+  <rect class="key-highlight" x="260" y="85" width="44" height="44" rx="6" stroke="#D08770"/>
+  <text class="text-primary" x="282" y="113" text-anchor="middle" font-size="14">T</text>
+  <line class="combo-line" x1="282" y1="79" x2="282" y2="85" stroke="#D08770"/>
+  <rect fill="#D08770" x="262" y="130" width="40" height="18" rx="9"/>
+  <text class="combo-label-text" x="282" y="142" text-anchor="middle" font-size="9" fill="#242933">CW</text>
+
+  <!-- ===== RIGHT HAND ===== -->
+
+  <!-- Row 0 muted -->
+  <rect class="key-muted" x="460" y="40" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="482" y="68" text-anchor="middle" font-size="14">J</text>
+  <rect class="key-muted" x="660" y="40" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="682" y="68" text-anchor="middle" font-size="14">;</text>
+  <rect class="key-muted" x="710" y="45" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="732" y="73" text-anchor="middle" font-size="14">\</text>
+
+  <!-- Row 1 muted -->
+  <rect class="key-muted" x="460" y="90" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="482" y="118" text-anchor="middle" font-size="14">M</text>
+  <rect class="key-muted" x="660" y="90" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="682" y="118" text-anchor="middle" font-size="14">O</text>
+  <rect class="key-muted" x="710" y="95" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="732" y="123" text-anchor="middle" font-size="14">'</text>
+
+  <!-- Row 2 muted -->
+  <rect class="key-muted" x="460" y="140" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="482" y="168" text-anchor="middle" font-size="14">K</text>
+  <rect class="key-muted" x="510" y="135" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="532" y="163" text-anchor="middle" font-size="14">H</text>
+  <rect class="key-muted" x="560" y="125" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="582" y="153" text-anchor="middle" font-size="14">,</text>
+  <rect class="key-muted" x="610" y="130" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="632" y="158" text-anchor="middle" font-size="14">.</text>
+  <rect class="key-muted" x="660" y="140" width="44" height="44" rx="6"/>
+  <text class="text-muted" x="682" y="168" text-anchor="middle" font-size="14">/</text>
+  <rect class="key-muted" x="710" y="145" width="44" height="44" rx="6"/>
+
+  <!-- Right Thumb cluster (muted) -->
+  <rect class="key-muted" x="460" y="225" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="510" y="225" width="44" height="44" rx="6"/>
+  <rect class="key-muted" x="560" y="225" width="44" height="44" rx="6"/>
+
+  <!-- ===== COMBO 4: L+N = ' (Yellow #EBCB8B) ===== -->
+  <rect class="key-highlight" x="510" y="35" width="44" height="44" rx="6" stroke="#EBCB8B"/>
+  <text class="text-primary" x="532" y="63" text-anchor="middle" font-size="14">L</text>
+  <rect class="key-highlight" x="510" y="85" width="44" height="44" rx="6" stroke="#EBCB8B"/>
+  <text class="text-primary" x="532" y="113" text-anchor="middle" font-size="14">N</text>
+  <line class="combo-line" x1="532" y1="79" x2="532" y2="85" stroke="#EBCB8B"/>
+  <rect fill="#EBCB8B" x="512" y="130" width="40" height="18" rx="9"/>
+  <text class="combo-label-text" x="532" y="142" text-anchor="middle" font-size="9" fill="#242933">'</text>
+
+  <!-- ===== COMBO 5: U+E = | (Green #A3BE8C) ===== -->
+  <rect class="key-highlight" x="560" y="25" width="44" height="44" rx="6" stroke="#A3BE8C"/>
+  <text class="text-primary" x="582" y="53" text-anchor="middle" font-size="14">U</text>
+  <rect class="key-highlight" x="560" y="75" width="44" height="44" rx="6" stroke="#A3BE8C"/>
+  <text class="text-primary" x="582" y="103" text-anchor="middle" font-size="14">E</text>
+  <line class="combo-line" x1="582" y1="69" x2="582" y2="75" stroke="#A3BE8C"/>
+  <rect fill="#A3BE8C" x="562" y="130" width="40" height="18" rx="9"/>
+  <text class="combo-label-text" x="582" y="142" text-anchor="middle" font-size="9" fill="#242933">|</text>
+
+  <!-- ===== COMBO 6: Y+I = ` (Purple #B48EAD) ===== -->
+  <rect class="key-highlight" x="610" y="30" width="44" height="44" rx="6" stroke="#B48EAD"/>
+  <text class="text-primary" x="632" y="58" text-anchor="middle" font-size="14">Y</text>
+  <rect class="key-highlight" x="610" y="80" width="44" height="44" rx="6" stroke="#B48EAD"/>
+  <text class="text-primary" x="632" y="108" text-anchor="middle" font-size="14">I</text>
+  <line class="combo-line" x1="632" y1="74" x2="632" y2="80" stroke="#B48EAD"/>
+  <rect fill="#B48EAD" x="612" y="130" width="40" height="18" rx="9"/>
+  <text class="combo-label-text" x="632" y="142" text-anchor="middle" font-size="9" fill="#242933">`</text>
+
+  <!-- Legend -->
+  <text class="text-muted" x="60" y="305" font-size="9">Legend:</text>
+  <rect fill="#88C0D0" x="105" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="120" y="305" font-size="8">ESC</text>
+  <rect fill="#BF616A" x="150" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="165" y="305" font-size="8">TAB</text>
+  <rect fill="#D08770" x="195" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="210" y="305" font-size="8">CW</text>
+  <rect fill="#EBCB8B" x="235" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="250" y="305" font-size="8">'</text>
+  <rect fill="#A3BE8C" x="270" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="285" y="305" font-size="8">|</text>
+  <rect fill="#B48EAD" x="305" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="320" y="305" font-size="8">`</text>
+
+  <!-- Attribution -->
+  <text fill="#4C566A" x="760" y="305" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9">Nordic.nvim</text>
+</svg>

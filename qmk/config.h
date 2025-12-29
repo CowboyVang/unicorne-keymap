@@ -11,13 +11,13 @@
 // =============================================================================
 // Combos
 // =============================================================================
-#define COMBO_COUNT 11
+#define COMBO_COUNT 14
 #define COMBO_TERM 50
 
 // =============================================================================
 // Auto Shift (custom whitelist: ; ' / - =)
 // =============================================================================
-#define AUTO_SHIFT_TIMEOUT 150
+#define AUTO_SHIFT_TIMEOUT 175
 #define AUTO_SHIFT_REPEAT        // Allow repeat when held
 #define NO_AUTO_SHIFT_ALPHA      // Disable for letters (backup safety)
 #define NO_AUTO_SHIFT_NUMERIC    // Disable for numbers (backup safety)
@@ -34,6 +34,12 @@
 // =============================================================================
 #define ONESHOT_TAP_TOGGLE 2
 #define ONESHOT_TIMEOUT 3000
+
+// =============================================================================
+// Select Word (macOS)
+// =============================================================================
+#define SELECT_WORD_OS_MAC
+#define SELECT_WORD_TIMEOUT 2000  // 2 seconds
 
 // =============================================================================
 // RGB Matrix

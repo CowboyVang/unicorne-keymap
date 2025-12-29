@@ -1,19 +1,29 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #include QMK_KEYBOARD_H
+#include "features/select_word.h"
 
 // =============================================================================
 // Layer Definitions
 // =============================================================================
 enum layers {
     _BASE,  // Layer 0: Colemak-DH
-    _NAV,   // Layer 1: Navigation & Raycast
+    _NAV,   // Layer 1: Navigation & System Orchestrator
     _SYM    // Layer 2: Numbers & Symbols
 };
 
 // =============================================================================
 // Custom Keycodes
 // =============================================================================
+enum custom_keycodes {
+    SELWORD = SAFE_RANGE,
+    SELWBAK,
+    SELLINE,
+};
+
+// Select Word keycode (required by select_word.c)
+uint16_t SELECT_WORD_KEYCODE = SELWORD;
+
 #define OSM_SYM LT(_SYM, KC_NO)  // Hold for layer, tap handled by tap dance alternative
 
 // =============================================================================
@@ -32,9 +42,14 @@ const uint16_t PROGMEM combo_bspc[] = {KC_F, KC_T, COMBO_END};         // F + T 
 // Right Hand - Vertical
 const uint16_t PROGMEM combo_pipe[] = {KC_U, KC_E, COMBO_END};         // U + E = Pipe (Middle vertical)
 const uint16_t PROGMEM combo_backtick[] = {KC_Y, KC_I, COMBO_END};     // Y + I = Backtick (Ring vertical)
-const uint16_t PROGMEM combo_capsword[] = {KC_L, KC_N, COMBO_END};     // L + N = Caps Word (Middle vertical)
+const uint16_t PROGMEM combo_apostrophe[] = {KC_L, KC_N, COMBO_END};   // L + N = Apostrophe (Index vertical)
+// Right Hand - Horizontal
+const uint16_t PROGMEM combo_slash[] = {KC_L, KC_U, COMBO_END};        // L + U = Slash (Top row)
+const uint16_t PROGMEM combo_exclam[] = {KC_U, KC_Y, COMBO_END};       // U + Y = Exclamation (Top row)
 // Right Hand - Diagonal
 const uint16_t PROGMEM combo_shift_enter[] = {KC_N, KC_U, COMBO_END};  // N + U = Shift+Enter (Home index + mid)
+// Left Hand - Vertical (additional)
+const uint16_t PROGMEM combo_capsword[] = {KC_P, KC_T, COMBO_END};     // P + T = Caps Word (Index vertical)
 
 combo_t key_combos[COMBO_COUNT] = {
     // Left Hand
@@ -43,17 +58,20 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_del, KC_DEL),              // F + P = Delete
     COMBO(combo_undo, G(KC_Z)),            // X + C = Undo
     COMBO(combo_redo, G(KC_Y)),            // C + D = Redo
-    COMBO(combo_paste_plain, G(S(KC_V))),  // D + V = Paste without format
+    COMBO(combo_paste_plain, A(S(KC_V))),  // D + V = Paste without format (Option+Shift+V)
     COMBO(combo_bspc, KC_BSPC),            // F + T = Backspace
+    COMBO(combo_capsword, CW_TOGG),        // P + T = Caps Word Toggle
     // Right Hand
     COMBO(combo_pipe, S(KC_BSLS)),         // U + E = Pipe |
     COMBO(combo_backtick, KC_GRV),         // Y + I = Backtick `
-    COMBO(combo_capsword, CW_TOGG),        // L + N = Caps Word Toggle
+    COMBO(combo_apostrophe, KC_QUOT),      // L + N = Apostrophe '
+    COMBO(combo_slash, KC_SLSH),           // L + U = Slash /
+    COMBO(combo_exclam, KC_EXLM),          // U + Y = Exclamation !
     COMBO(combo_shift_enter, S(KC_ENT)),   // N + U = Shift+Enter
 };
 
 // =============================================================================
-// Key Overrides (Bracket Pairs)
+// Key Overrides (Bracket Pairs + Angle Brackets)
 // =============================================================================
 // Shift + [ = ]
 const key_override_t lbrc_override = ko_make_basic(MOD_MASK_SHIFT, KC_LBRC, KC_RBRC);
@@ -61,11 +79,14 @@ const key_override_t lbrc_override = ko_make_basic(MOD_MASK_SHIFT, KC_LBRC, KC_R
 const key_override_t lprn_override = ko_make_basic(MOD_MASK_SHIFT, KC_LPRN, KC_RPRN);
 // Shift + { = }
 const key_override_t lcbr_override = ko_make_basic(MOD_MASK_SHIFT, KC_LCBR, KC_RCBR);
+// Shift + < = >
+const key_override_t labk_override = ko_make_basic(MOD_MASK_SHIFT, KC_LABK, KC_RABK);
 
 const key_override_t *key_overrides[] = {
     &lbrc_override,
     &lprn_override,
     &lcbr_override,
+    &labk_override,
     NULL
 };
 
@@ -89,22 +110,48 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 }
 
 // =============================================================================
+// Process Record User (Custom Keycodes & Select Word)
+// =============================================================================
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // Handle Select Word (forward selection)
+    if (!process_select_word(keycode, record)) { return false; }
+
+    switch (keycode) {
+        case SELWBAK:  // Select word backward
+            if (record->event.pressed) {
+                select_word_register('B');
+            } else {
+                select_word_unregister();
+            }
+            return false;
+        case SELLINE:  // Select line
+            if (record->event.pressed) {
+                select_word_register('L');
+            } else {
+                select_word_unregister();
+            }
+            return false;
+    }
+    return true;
+}
+
+// =============================================================================
 // Keymaps
 // =============================================================================
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /*
      * Layer 0: Base (Colemak-DH)
-     * Pure Space. Smart Shift/Layer Thumb.
+     * Pure Space. Smart Shift/Layer Thumb. Repeat Key on outer right.
      *
      * ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-     * │ KC_TAB  │  KC_Q   │  KC_W   │  KC_F   │  KC_P   │  KC_B   │   │  KC_J   │  KC_L   │  KC_U   │  KC_Y   │ KC_SCLN │ KC_MINS │
+     * │ KC_TAB  │  KC_Q   │  KC_W   │  KC_F   │  KC_P   │  KC_B   │   │  KC_J   │  KC_L   │  KC_U   │  KC_Y   │ KC_SCLN │ KC_BSLS │
      * ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
      * │ KC_ESC  │  KC_A   │  KC_R   │  KC_S   │  KC_T   │  KC_G   │   │  KC_M   │  KC_N   │  KC_E   │  KC_I   │  KC_O   │ KC_QUOT │
      * ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-     * │ KC_LSFT │  KC_Z   │  KC_X   │  KC_C   │  KC_D   │  KC_V   │   │  KC_K   │  KC_H   │ KC_COMM │ KC_DOT  │ KC_SLSH │ KC_BSLS │
+     * │SC_LSPO  │  KC_Z   │  KC_X   │  KC_C   │  KC_D   │  KC_V   │   │  KC_K   │  KC_H   │ KC_COMM │ KC_DOT  │ KC_SLSH │SC_RSPC  │
      * └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┴─────────┴─────────┴─────────┘
-     *                               │MO(_NAV) │ KC_SPC  │ KC_LGUI │   │RSFT_T(E)│LT(SYM,B)│ OSM(SFT)│
+     *                               │LT(NAV,-)│ KC_SPC  │GUI_T(=) │   │RSFT_T(E)│LT(SYM,B)│ QK_REP  │
      *                               └─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘
      */
     [_BASE] = LAYOUT_split_3x6_3(
@@ -115,59 +162,60 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
        SC_LSPO,  KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,                          KC_K,     KC_H,     HYPR_T(KC_COMM), MEH_T(KC_DOT), KC_SLSH, SC_RSPC,
     //└─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┴─────────┴─────────┴─────────┘
-                                     LT(_NAV,KC_MINS), KC_SPC, LGUI_T(KC_EQL),          RSFT_T(KC_ENT), LT(_SYM,KC_BSPC), RALT_T(KC_NO)
+                                     LT(_NAV,KC_MINS), KC_SPC, LGUI_T(KC_EQL),          RSFT_T(KC_ENT), LT(_SYM,KC_BSPC), QK_REP
     //                              └─────────┴─────────┴─────────┘                    └─────────┴─────────┴─────────┘
     ),
 
     /*
-     * Layer 1: Navigation & Raycast
-     * Left: Raycast F-keys with modifiers. Right: Navigation (vim-style).
+     * Layer 1: Navigation & System Orchestrator
+     * Left: System Orchestrator F-keys with modifiers. Right: Navigation (vim-style) + Select Word.
      *
      * ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐   ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
-     * │ S(KC_F15)│ S(KC_F16)│ S(KC_F17)│ S(KC_F18)│ S(KC_F19)│ S(KC_F20)│   │ KC_PGUP  │ KC_HOME  │  KC_INS  │  KC_END  │  KC_DEL  │ KC_VOLU  │
+     * │ S(KC_F15)│ S(KC_F16)│ S(KC_F17)│ S(KC_F18)│ S(KC_F19)│ S(KC_F20)│   │ KC_PGUP  │ SELWBAK  │ SELWORD  │ SELLINE  │  KC_END  │ KC_VOLU  │
      * ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
      * │  KC_F15  │LCTL_T(16)│LALT_T(17)│LSFT_T(18)│LGUI_T(19)│  KC_F20  │   │ KC_PGDN  │ KC_LEFT  │ KC_DOWN  │  KC_UP   │ KC_RGHT  │ KC_VOLD  │
      * ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-     * │G(S(F15)) │G(S(F16)) │G(S(F17)) │G(S(F18)) │G(S(F19)) │G(S(F20)) │   │ XXXXXXX  │ KC_MINS  │ KC_MINS  │ KC_PLUS  │  KC_EQL  │ KC_MUTE  │
+     * │G(S(F15)) │G(S(F16)) │G(S(F17)) │G(S(F18)) │G(S(F19)) │G(S(F20)) │   │ KC_HOME  │ KC_MINS  │ KC_UNDS  │  KC_EQL  │ KC_PLUS  │ KC_MUTE  │
      * └──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────┴──────────┘
-     *                                  │ _______  │ _______  │ _______  │   │ KC_LSFT  │ KC_BSPC  │ _______  │
+     *                                  │ _______  │ _______  │ _______  │   │ KC_LSFT  │ KC_BSPC  │ QK_AREP  │
      *                                  └──────────┴──────────┴──────────┘   └──────────┴──────────┴──────────┘
      */
     [_NAV] = LAYOUT_split_3x6_3(
     //┌────────────────┬────────────────┬────────────────┬────────────────┬────────────────┬────────────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-       S(KC_F15),       S(KC_F16),       S(KC_F17),       S(KC_F18),       S(KC_F19),       S(KC_F20),                            KC_PGUP,  KC_HOME,  KC_INS,   KC_END,   KC_DEL,   KC_VOLU,
+       S(KC_F15),       S(KC_F16),       S(KC_F17),       S(KC_F18),       S(KC_F19),       S(KC_F20),                            KC_PGUP,  SELWBAK,  SELWORD,  SELLINE,  KC_END,   KC_VOLU,
     //├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
        KC_F15,          LCTL_T(KC_F16),  LALT_T(KC_F17),  LSFT_T(KC_F18),  LGUI_T(KC_F19),  KC_F20,                               KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_VOLD,
     //├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-       G(S(KC_F15)),    G(S(KC_F16)),    G(S(KC_F17)),    G(S(KC_F18)),    G(S(KC_F19)),    G(S(KC_F20)),                         XXXXXXX,  KC_MINS,  S(KC_MINS), KC_PLUS, KC_EQL,   KC_MUTE,
+       G(S(KC_F15)),    G(S(KC_F16)),    G(S(KC_F17)),    G(S(KC_F18)),    G(S(KC_F19)),    G(S(KC_F20)),                         KC_HOME,  KC_MINS,  KC_UNDS,  KC_EQL,   KC_PLUS,  KC_MUTE,
     //└────────────────┴────────────────┴────────────────┼────────────────┼────────────────┼────────────────┤                    ├─────────┼─────────┼─────────┴─────────┴─────────┴─────────┘
-                                                          _______,         _______,         _______,                              KC_LSFT,  KC_BSPC,  KC_DEL
+                                                          _______,         _______,         _______,                              KC_LSFT,  KC_BSPC,  QK_AREP
     //                                                   └────────────────┴────────────────┴────────────────┘                    └─────────┴─────────┴─────────┘
     ),
 
     /*
      * Layer 2: Numbers (Left) & Symbols (Right)
-     * Left: Numpad layout. Right: Math & Logic symbols.
+     * Left: Normal numbers (not numpad). Right: Symbols optimized for programming.
+     * DF(_SYM) sets default layer, DF(_BASE) returns. Key Override: Shift+< = >
      *
      * ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐   ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
-     * │  TG(2)   │ KC_SLSH  │  KC_P7   │  KC_P8   │  KC_P9   │ KC_MINS  │   │ KC_PERC  │ KC_LABK  │ KC_RABK  │ KC_EXLM  │ KC_QUES  │ KC_GRV   │
+     * │ DF(_SYM) │ KC_SLSH  │  KC_7    │  KC_8    │  KC_9    │ KC_MINS  │   │ KC_CIRC  │  KC_AT   │ KC_ASTR  │ KC_HASH  │ KC_AMPR  │ KC_DLR   │
      * ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-     * │ TO(_BASE)│ KC_ASTR  │  KC_P4   │  KC_P5   │  KC_P6   │  KC_P0   │   │ KC_PIPE  │ KC_LBRC  │ KC_LPRN  │ KC_LCBR  │ KC_EQL   │ KC_BSLS  │
+     * │DF(_BASE) │ KC_ASTR  │  KC_4    │  KC_5    │  KC_6    │  KC_0    │   │ KC_LABK  │ KC_LBRC  │ KC_LCBR  │ KC_LPRN  │ KC_GRV   │ KC_QUOT  │
      * ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-     * │ XXXXXXX  │ XXXXXXX  │  KC_P1   │  KC_P2   │  KC_P3   │ KC_EQL   │   │ KC_TILD  │ KC_MINS  │ KC_ASTR  │ KC_SLSH  │ KC_DLR   │ KC_CIRC  │
+     * │ XXXXXXX  │ XXXXXXX  │  KC_1    │  KC_2    │  KC_3    │ KC_EQL   │   │ KC_TILD  │ KC_MINS  │ KC_UNDS  │ KC_EQL   │ KC_PLUS  │ KC_PERC  │
      * └──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────┴──────────┘
-     *                                  │ KC_PDOT  │G(KC_SPC) │ KC_LSFT  │   │  KC_ENT  │ KC_BSPC  │ _______  │
+     *                                  │ KC_DOT   │G(KC_SPC) │ KC_LSFT  │   │  KC_ENT  │ KC_BSPC  │ _______  │
      *                                  └──────────┴──────────┴──────────┘   └──────────┴──────────┴──────────┘
      */
     [_SYM] = LAYOUT_split_3x6_3(
     //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-       TG(_SYM), KC_SLSH,  KC_P7,    KC_P8,    KC_P9,    KC_MINS,                       KC_PERC,  KC_LABK,  KC_RABK,  KC_EXLM,  KC_QUES,  KC_GRV,
+       DF(_SYM), KC_SLSH,  KC_7,     KC_8,     KC_9,     KC_MINS,                       KC_CIRC,  KC_AT,    KC_ASTR,  KC_HASH,  KC_AMPR,  KC_DLR,
     //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-       TO(_BASE),KC_ASTR,  KC_P4,    KC_P5,    KC_P6,    KC_P0,                         KC_PIPE,  KC_LBRC,  KC_LPRN,  KC_LCBR,  KC_EQL,   KC_BSLS,
+       DF(_BASE),KC_ASTR,  KC_4,     KC_5,     KC_6,     KC_0,                          KC_LABK,  KC_LBRC,  KC_LCBR,  KC_LPRN,  KC_GRV,   KC_QUOT,
     //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-       XXXXXXX,  XXXXXXX,  KC_P1,    KC_P2,    KC_P3,    KC_EQL,                        KC_TILD,  KC_MINS,  KC_ASTR,  KC_SLSH,  KC_DLR,   KC_CIRC,
+       XXXXXXX,  XXXXXXX,  KC_1,     KC_2,     KC_3,     KC_EQL,                        KC_TILD,  KC_MINS,  KC_UNDS,  KC_EQL,   KC_PLUS,  KC_PERC,
     //└─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┴─────────┴─────────┴─────────┘
-                                     KC_PDOT,  G(KC_SPC),KC_LSFT,                       KC_ENT,   KC_BSPC,  _______
+                                     KC_DOT,   G(KC_SPC),KC_LSFT,                       KC_ENT,   KC_BSPC,  _______
     //                              └─────────┴─────────┴─────────┘                    └─────────┴─────────┴─────────┘
     )
 };

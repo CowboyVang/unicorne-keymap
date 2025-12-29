@@ -2,6 +2,106 @@
 
 All notable changes to the pure QMK keymap for Boardsource Unicorne.
 
+## [2.0.14] - 2025-12-29
+
+### Added
+- **SVG Visualizations** - Created 6 SVG keyboard layout diagrams:
+  - `layer-0-base.svg` - Base layer (Colemak-DH)
+  - `layer-1-nav.svg` - Navigation & System Orchestrator layer
+  - `layer-2-sym.svg` - Numbers & Symbols layer
+  - `combos-vertical.svg` - Vertical combos (W+R, F+S, P+T, U+E, Y+I, L+N)
+  - `combos-horizontal.svg` - Horizontal combos (F+P, X+C, C+D, D+V, L+U, U+Y)
+  - `combos-diagonal.svg` - Diagonal combos (F+T, N+U)
+- **Claude Skill** - `keyboard-layout-visualizer` skill for generating/updating visualizations
+  - Located at `.claude/skills/keyboard-layout-visualizer/`
+  - Includes templates, Nordic.nvim palette, and usage documentation
+  - Visualizations only generated when explicitly prompted
+
+### Changed
+- **README Image Paths** - Updated from external PNG to local SVG files
+  - Old: `../../../../../Images/*.png`
+  - New: `./images/*.svg`
+
+---
+
+## [2.0.13] - 2025-12-29
+
+### Changed
+- **Auto Shift Timeout** - Increased from 150ms to 175ms
+  - Provides more time for intentional holds
+- **Layer Lock** - `TO(_SYM)` → `DF(_SYM)` and `TO(_BASE)` → `DF(_BASE)`
+  - Fixes layer not staying locked when releasing `LT(_SYM, KC_BSPC)` thumb key
+  - `DF()` sets the **default layer** which persists regardless of momentary layer states
+- **Navigation Layer Bottom Row** - Reordered to match Symbol layer
+  - Was: `- | _ | + | =`
+  - Now: `- | _ | = | +`
+  - Uses `KC_UNDS` instead of `S(KC_MINS)` for cleaner code
+
+---
+
+## [2.0.12] - 2025-12-29
+
+### Added
+- **New Combos** - 3 new combos added (total now 14):
+  - `L + U` = Slash `/` (right hand horizontal)
+  - `U + Y` = Exclamation `!` (right hand horizontal)
+  - `P + T` = Caps Word Toggle (left hand vertical, moved from L+N)
+- **Angle Bracket Key Override** - `Shift + <` outputs `>`
+  - Added `labk_override` to key_overrides array
+
+### Changed
+- **Layer 2 Right Hand** - Complete symbol redesign:
+  - Top row: `^` `@` `*` `#` `&` `$`
+  - Home row: `<` `[` `{` `(` `` ` `` `'`
+  - Bottom row: `~` `-` `_` `=` `+` `%`
+- **Layer 2 Left Hand** - Numpad → Normal numbers:
+  - `KC_P7`-`KC_P9` → `KC_7`-`KC_9`
+  - `KC_P4`-`KC_P6` → `KC_4`-`KC_6`
+  - `KC_P1`-`KC_P3` → `KC_1`-`KC_3`
+  - `KC_P0` → `KC_0`
+  - `KC_PDOT` → `KC_DOT`
+- **Layer Toggle** - `TG(_SYM)` → `TO(_SYM)` for reliable layer locking
+  - Fixes issue where layer would deactivate when releasing LT thumb key
+- **Combo L + N** - Changed from `CW_TOGG` (Caps Word) to `KC_QUOT` (Apostrophe)
+- **Combo D + V** - Fixed paste plain: `G(S(KC_V))` → `A(S(KC_V))` (Option+Shift+V)
+- **COMBO_COUNT** - Updated from 11 to 14
+
+---
+
+## [2.0.11] - 2025-12-29
+
+### Added
+- **Repeat Key** - `QK_REP` on Layer 0 right outer thumb
+  - Repeats the last pressed key
+  - Pure repeat key (mod-tap with QK_REP not supported)
+- **Alt Repeat** - `QK_AREP` on Layer 1 right outer thumb
+  - Outputs contextual alternate repeat (e.g., after `n` outputs `N`)
+- **Select Word** - Pascal Getreuer's select_word feature for text selection
+  - `SELWORD` - Select word at cursor (tap again to extend)
+  - `SELWBAK` - Select word backward
+  - `SELLINE` - Select line
+  - Uses macOS hotkeys (`SELECT_WORD_OS_MAC`)
+  - 2-second timeout (`SELECT_WORD_TIMEOUT 2000`)
+- **features/ directory** - New directory for external QMK features
+  - `features/select_word.h` - Select Word header
+  - `features/select_word.c` - Select Word implementation
+
+### Changed
+- **Layer 0 right outer thumb** - `RALT_T(KC_NO)` → `QK_REP` (Repeat Key)
+- **Layer 1 top row right** - Complete redesign for Select Word:
+  - Col 2: `KC_HOME` → `SELWBAK` (Select word backward)
+  - Col 3: `KC_INS` → `SELWORD` (Select word forward)
+  - Col 4: `KC_END` → `SELLINE` (Select line)
+  - Col 5: `KC_DEL` → `KC_END` (End key moved here)
+- **Layer 1 bottom row left** - `XXXXXXX` → `KC_HOME` (Home key moved from top row)
+- **Layer 1 right outer thumb** - `KC_DEL` → `QK_AREP` (Alt Repeat)
+
+### Removed
+- **KC_INS** - Insert key removed from Layer 1 (rarely used)
+- **KC_DEL on Layer 1** - Delete key removed (available via F+P combo)
+
+---
+
 ## [2.0.10] - 2025-12-29
 
 ### Added
