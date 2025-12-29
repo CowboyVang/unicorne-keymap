@@ -323,3 +323,11 @@ make boardsource/unicorne:default
 # 2. Drag .uf2 to RPI-RP2 drive
 ```
 
+---
+
+## Acknowledgements
+
+- [Pascal Getreuer](https://getreuer.info/posts/keyboards/) — Select Word feature
+- [Nordic.nvim](https://github.com/AlexvZyl/nordic.nvim) — Color scheme for visualizations
+- [QMK Firmware](https://qmk.fm/) — Keyboard firmware
+- [Boardsource](https://boardsource.xyz/) — Unicorne keyboard
