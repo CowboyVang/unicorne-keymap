@@ -2,6 +2,22 @@
 
 All notable changes to the pure QMK keymap for Boardsource Unicorne.
 
+## [2.0.15] - 2026-01-01
+
+### Added
+- **W+F Combo** - New diagonal combo for `Cmd+M` (Minimize window)
+  - Total combos now 15
+
+### Changed
+- **Left Thumb Cluster Swap** - Outer and inner thumbs swapped:
+  - Outer: `LGUI_T(KC_EQL)` (Tap=`=`, Hold=Cmd)
+  - Inner: `LT(_NAV, KC_MINS)` (Tap=`-`, Hold=Nav)
+- **Paste Without Format Combo** - Fixed D+V combo to use correct modifier:
+  - Was: `A(S(KC_V))` (Option+Shift+V)
+  - Now: `G(S(KC_V))` (Cmd+Shift+V)
+
+---
+
 ## [2.0.14] - 2025-12-29
 
 ### Added

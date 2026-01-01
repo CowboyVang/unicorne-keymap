@@ -50,6 +50,7 @@ const uint16_t PROGMEM combo_exclam[] = {KC_U, KC_Y, COMBO_END};       // U + Y 
 const uint16_t PROGMEM combo_shift_enter[] = {KC_N, KC_U, COMBO_END};  // N + U = Shift+Enter (Home index + mid)
 // Left Hand - Vertical (additional)
 const uint16_t PROGMEM combo_capsword[] = {KC_P, KC_T, COMBO_END};     // P + T = Caps Word (Index vertical)
+const uint16_t PROGMEM combo_minimize[] = {KC_W, KC_F, COMBO_END};     // W + F = Cmd+M (Minimize)
 
 combo_t key_combos[COMBO_COUNT] = {
     // Left Hand
@@ -58,7 +59,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_del, KC_DEL),              // F + P = Delete
     COMBO(combo_undo, G(KC_Z)),            // X + C = Undo
     COMBO(combo_redo, G(KC_Y)),            // C + D = Redo
-    COMBO(combo_paste_plain, A(S(KC_V))),  // D + V = Paste without format (Option+Shift+V)
+    COMBO(combo_paste_plain, G(S(KC_V))),  // D + V = Paste without format (Cmd+Shift+V)
     COMBO(combo_bspc, KC_BSPC),            // F + T = Backspace
     COMBO(combo_capsword, CW_TOGG),        // P + T = Caps Word Toggle
     // Right Hand
@@ -68,6 +69,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_slash, KC_SLSH),           // L + U = Slash /
     COMBO(combo_exclam, KC_EXLM),          // U + Y = Exclamation !
     COMBO(combo_shift_enter, S(KC_ENT)),   // N + U = Shift+Enter
+    COMBO(combo_minimize, G(KC_M)),        // W + F = Minimize
 };
 
 // =============================================================================
@@ -151,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
      * │SC_LSPO  │  KC_Z   │  KC_X   │  KC_C   │  KC_D   │  KC_V   │   │  KC_K   │  KC_H   │ KC_COMM │ KC_DOT  │ KC_SLSH │SC_RSPC  │
      * └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┴─────────┴─────────┴─────────┘
-     *                               │LT(NAV,-)│ KC_SPC  │GUI_T(=) │   │RSFT_T(E)│LT(SYM,B)│ QK_REP  │
+     *                               │GUI_T(=) │ KC_SPC  │LT(NAV,-)│   │RSFT_T(E)│LT(SYM,B)│ QK_REP  │
      *                               └─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘
      */
     [_BASE] = LAYOUT_split_3x6_3(
@@ -162,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
        SC_LSPO,  KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,                          KC_K,     KC_H,     HYPR_T(KC_COMM), MEH_T(KC_DOT), KC_SLSH, SC_RSPC,
     //└─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┴─────────┴─────────┴─────────┘
-                                     LT(_NAV,KC_MINS), KC_SPC, LGUI_T(KC_EQL),          RSFT_T(KC_ENT), LT(_SYM,KC_BSPC), QK_REP
+                                     LGUI_T(KC_EQL), KC_SPC, LT(_NAV,KC_MINS),          RSFT_T(KC_ENT), LT(_SYM,KC_BSPC), QK_REP
     //                              └─────────┴─────────┴─────────┘                    └─────────┴─────────┴─────────┘
     ),
 

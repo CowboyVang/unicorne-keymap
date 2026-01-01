@@ -46,7 +46,7 @@ The chording efficiency of this layout relies on specific low-profile hardware t
 | NKRO | Enabled | |
 | Extrakeys | Enabled | |
 | RGB Matrix | Enabled | Off by default (val=0), 54 LEDs |
-| Combos | Enabled | 14 code-defined combos |
+| Combos | Enabled | 15 code-defined combos |
 | Key Overrides | Enabled | Bracket pair mappings |
 | Caps Word | Enabled | 5s idle timeout |
 | Auto Shift | Enabled | Custom whitelist: ; ' / - = |
@@ -76,7 +76,7 @@ The chording efficiency of this layout relies on specific low-profile hardware t
 ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
 │ SC_LSPO │  KC_Z   │  KC_X   │  KC_C   │  KC_D   │  KC_V   │   │  KC_K   │  KC_H   │HYPR(,)  │ MEH(.)  │ KC_SLSH │ SC_RSPC │
 └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┴─────────┴─────────┴─────────┘
-                              │LT(NAV,-)│ KC_SPC  │LGUI(=)  │   │RSFT(ENT)│LT(SYM,BS)│ QK_REP  │
+                              │LGUI(=)  │ KC_SPC  │LT(NAV,-)│   │RSFT(ENT)│LT(SYM,BS)│ QK_REP  │
                               └─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘
 ```
 
@@ -85,9 +85,9 @@ The chording efficiency of this layout relies on specific low-profile hardware t
        LEFT THUMBS (Control)                         RIGHT THUMBS (Actions)
    (Outer        Mid        Inner)              (Inner         Mid         Outer)
 ┌────────────┬────────────┬────────────┐      ┌────────────┬────────────┬────────────┐
-│ TAP: -     │ TAP: Space │ TAP: =     │      │ TAP: Enter │ TAP: Bksp  │ TAP: Repeat│
+│ TAP: =     │ TAP: Space │ TAP: -     │      │ TAP: Enter │ TAP: Bksp  │ TAP: Repeat│
 ├────────────┼────────────┼────────────┤      ├────────────┼────────────┼────────────┤
-│ HLD: Nav   │ HLD: --    │ HLD: Cmd   │      │ HLD: Shift │ HLD: Sym   │ HLD: --    │
+│ HLD: Cmd   │ HLD: --    │ HLD: Nav   │      │ HLD: Shift │ HLD: Sym   │ HLD: --    │
 └────────────┴────────────┴────────────┘      └────────────┴────────────┴────────────┘
 ```
 
@@ -98,9 +98,9 @@ The chording efficiency of this layout relies on specific low-profile hardware t
 - `SC_RSPC`: Tap = `)`, Hold = Shift (Space Cadet)
 - `HYPR_T(KC_COMM)`: Tap = `,`, Hold = Hyper (Ctrl+Alt+Shift+Cmd)
 - `MEH_T(KC_DOT)`: Tap = `.`, Hold = Meh (Ctrl+Alt+Shift)
-- `LT(_NAV, KC_MINS)`: Tap = `-`, Hold = Navigation layer
-- `KC_SPC`: Pure space (no layer-tap delay)
 - `LGUI_T(KC_EQL)`: Tap = `=`, Hold = Cmd
+- `KC_SPC`: Pure space (no layer-tap delay)
+- `LT(_NAV, KC_MINS)`: Tap = `-`, Hold = Navigation layer
 - `RSFT_T(KC_ENT)`: Tap = Enter, Hold = Right Shift
 - `LT(_SYM, KC_BSPC)`: Tap = Backspace, Hold = Symbols layer
 - `QK_REP`: Repeat last key (no hold function)
@@ -211,7 +211,8 @@ The chording efficiency of this layout relies on specific low-profile hardware t
 | F + P | `KC_DEL` | Horizontal | Delete (Top row) |
 | X + C | `G(KC_Z)` | Horizontal | Undo (Bottom row) |
 | C + D | `G(KC_Y)` | Horizontal | Redo (Bottom row) |
-| D + V | `A(S(KC_V))` | Horizontal | Paste without format (Option+Shift+V) |
+| D + V | `G(S(KC_V))` | Horizontal | Paste without format (Cmd+Shift+V) |
+| W + F | `G(KC_M)` | Diagonal | Minimize window (Cmd+M) |
 | F + T | `KC_BSPC` | Diagonal | Backspace |
 | **Right Hand** ||||
 | U + E | `S(KC_BSLS)` | Vertical | Pipe `\|` (Middle) |
@@ -325,9 +326,17 @@ make boardsource/unicorne:default
 
 ---
 
-## Acknowledgements
+## File Structure
 
-- [Pascal Getreuer](https://getreuer.info/posts/keyboards/) — Select Word feature
-- [Nordic.nvim](https://github.com/AlexvZyl/nordic.nvim) — Color scheme for visualizations
-- [QMK Firmware](https://qmk.fm/) — Keyboard firmware
-- [Boardsource](https://boardsource.xyz/) — Unicorne keyboard
+```
+keymaps/default/
+├── README.md           # This file
+├── CLAUDE.md           # Claude Code instructions
+├── CHANGELOG.md        # Version history
+├── keymap.c            # Keymap + Combos + Key Overrides + Select Word
+├── config.h            # Feature configuration
+├── rules.mk            # Build flags
+└── features/           # External QMK features
+    ├── select_word.h   # Select Word header
+    └── select_word.c   # Select Word implementation
+```
