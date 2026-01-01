@@ -324,19 +324,3 @@ make boardsource/unicorne:default
 # 2. Drag .uf2 to RPI-RP2 drive
 ```
 
----
-
-## File Structure
-
-```
-keymaps/default/
-├── README.md           # This file
-├── CLAUDE.md           # Claude Code instructions
-├── CHANGELOG.md        # Version history
-├── keymap.c            # Keymap + Combos + Key Overrides + Select Word
-├── config.h            # Feature configuration
-├── rules.mk            # Build flags
-└── features/           # External QMK features
-    ├── select_word.h   # Select Word header
-    └── select_word.c   # Select Word implementation
-```
