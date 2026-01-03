@@ -2,6 +2,14 @@
 
 All notable changes to the pure QMK keymap for Boardsource Unicorne.
 
+## [2.0.16] - 2026-01-01
+
+### Added
+- **S+D Combo** - New diagonal combo for `Cmd+V` (Paste)
+  - Total combos now 16
+
+---
+
 ## [2.0.15] - 2026-01-01
 
 ### Added

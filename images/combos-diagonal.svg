@@ -31,18 +31,16 @@
   <rect class="key-muted" x="310" y="40" width="44" height="44" rx="6"/>
   <text class="text-muted" x="332" y="68" text-anchor="middle" font-size="14">B</text>
 
-  <!-- Row 1 muted -->
+  <!-- Row 1 muted (except S for S+D combo, T for F+T combo) -->
   <rect class="key-muted" x="60" y="95" width="44" height="44" rx="6"/>
   <rect class="key-muted" x="110" y="90" width="44" height="44" rx="6"/>
   <text class="text-muted" x="132" y="118" text-anchor="middle" font-size="14">A</text>
   <rect class="key-muted" x="160" y="80" width="44" height="44" rx="6"/>
   <text class="text-muted" x="182" y="108" text-anchor="middle" font-size="14">R</text>
-  <rect class="key-muted" x="210" y="75" width="44" height="44" rx="6"/>
-  <text class="text-muted" x="232" y="103" text-anchor="middle" font-size="14">S</text>
   <rect class="key-muted" x="310" y="90" width="44" height="44" rx="6"/>
   <text class="text-muted" x="332" y="118" text-anchor="middle" font-size="14">G</text>
 
-  <!-- Row 2 muted -->
+  <!-- Row 2 muted (except D for S+D combo) -->
   <rect class="key-muted" x="60" y="145" width="44" height="44" rx="6"/>
   <rect class="key-muted" x="110" y="140" width="44" height="44" rx="6"/>
   <text class="text-muted" x="132" y="168" text-anchor="middle" font-size="14">Z</text>
@@ -50,8 +48,6 @@
   <text class="text-muted" x="182" y="158" text-anchor="middle" font-size="14">X</text>
   <rect class="key-muted" x="210" y="125" width="44" height="44" rx="6"/>
   <text class="text-muted" x="232" y="153" text-anchor="middle" font-size="14">C</text>
-  <rect class="key-muted" x="260" y="135" width="44" height="44" rx="6"/>
-  <text class="text-muted" x="282" y="163" text-anchor="middle" font-size="14">D</text>
   <rect class="key-muted" x="310" y="140" width="44" height="44" rx="6"/>
   <text class="text-muted" x="332" y="168" text-anchor="middle" font-size="14">V</text>
 
@@ -61,8 +57,8 @@
   <rect class="key-muted" x="310" y="225" width="44" height="44" rx="6"/>
 
   <!-- ===== COMBO 1: F+T = BSPC (Cyan #88C0D0) ===== -->
-  <!-- F: X=210, Y=25, center at 232, 47 -->
-  <!-- T: X=260, Y=85, center at 282, 107 -->
+  <!-- F: X=210, Y=25 (row 0, col 3), center at 232, 47 -->
+  <!-- T: X=260, Y=85 (row 1, col 4), center at 282, 107 -->
   <rect class="key-highlight" x="210" y="25" width="44" height="44" rx="6" stroke="#88C0D0"/>
   <text class="text-primary" x="232" y="53" text-anchor="middle" font-size="14">F</text>
   <rect class="key-highlight" x="260" y="85" width="44" height="44" rx="6" stroke="#88C0D0"/>
@@ -71,9 +67,20 @@
   <rect fill="#88C0D0" x="237" y="60" width="48" height="18" rx="9"/>
   <text class="combo-label-text" x="261" y="72" text-anchor="middle" font-size="9" fill="#242933">BSPC</text>
 
+  <!-- ===== COMBO 2: S+D = PASTE (Yellow #EBCB8B) ===== -->
+  <!-- S: X=210, Y=75 (row 1, col 3), center at 232, 97 -->
+  <!-- D: X=260, Y=135 (row 2, col 4), center at 282, 157 -->
+  <rect class="key-highlight" x="210" y="75" width="44" height="44" rx="6" stroke="#EBCB8B"/>
+  <text class="text-primary" x="232" y="103" text-anchor="middle" font-size="14">S</text>
+  <rect class="key-highlight" x="260" y="135" width="44" height="44" rx="6" stroke="#EBCB8B"/>
+  <text class="text-primary" x="282" y="163" text-anchor="middle" font-size="14">D</text>
+  <line class="combo-line" x1="254" y1="119" x2="260" y2="135" stroke="#EBCB8B"/>
+  <rect fill="#EBCB8B" x="230" y="120" width="55" height="18" rx="9"/>
+  <text class="combo-label-text" x="257" y="132" text-anchor="middle" font-size="9" fill="#242933">PASTE</text>
+
   <!-- ===== RIGHT HAND ===== -->
 
-  <!-- Row 0 muted -->
+  <!-- Row 0 muted (except U for N+U combo) -->
   <rect class="key-muted" x="460" y="40" width="44" height="44" rx="6"/>
   <text class="text-muted" x="482" y="68" text-anchor="middle" font-size="14">J</text>
   <rect class="key-muted" x="510" y="35" width="44" height="44" rx="6"/>
@@ -85,7 +92,7 @@
   <rect class="key-muted" x="710" y="45" width="44" height="44" rx="6"/>
   <text class="text-muted" x="732" y="73" text-anchor="middle" font-size="14">\</text>
 
-  <!-- Row 1 muted -->
+  <!-- Row 1 muted (except N for N+U combo) -->
   <rect class="key-muted" x="460" y="90" width="44" height="44" rx="6"/>
   <text class="text-muted" x="482" y="118" text-anchor="middle" font-size="14">M</text>
   <rect class="key-muted" x="560" y="75" width="44" height="44" rx="6"/>
@@ -115,9 +122,9 @@
   <rect class="key-muted" x="510" y="225" width="44" height="44" rx="6"/>
   <rect class="key-muted" x="560" y="225" width="44" height="44" rx="6"/>
 
-  <!-- ===== COMBO 2: N+U = S+ENT (Purple #B48EAD) ===== -->
-  <!-- N: X=510, Y=85, center at 532, 107 -->
-  <!-- U: X=560, Y=25, center at 582, 47 -->
+  <!-- ===== COMBO 3: N+U = S+ENT (Purple #B48EAD) ===== -->
+  <!-- N: X=510, Y=85 (row 1, col 1), center at 532, 107 -->
+  <!-- U: X=560, Y=25 (row 0, col 2), center at 582, 47 -->
   <rect class="key-highlight" x="510" y="85" width="44" height="44" rx="6" stroke="#B48EAD"/>
   <text class="text-primary" x="532" y="113" text-anchor="middle" font-size="14">N</text>
   <rect class="key-highlight" x="560" y="25" width="44" height="44" rx="6" stroke="#B48EAD"/>
@@ -130,8 +137,10 @@
   <text class="text-muted" x="60" y="305" font-size="9">Legend:</text>
   <rect fill="#88C0D0" x="105" y="296" width="12" height="12" rx="2"/>
   <text class="text-muted" x="120" y="305" font-size="8">BSPC</text>
-  <rect fill="#B48EAD" x="160" y="296" width="12" height="12" rx="2"/>
-  <text class="text-muted" x="175" y="305" font-size="8">S+ENT</text>
+  <rect fill="#EBCB8B" x="160" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="175" y="305" font-size="8">PASTE</text>
+  <rect fill="#B48EAD" x="220" y="296" width="12" height="12" rx="2"/>
+  <text class="text-muted" x="235" y="305" font-size="8">S+ENT</text>
 
   <!-- Attribution -->
   <text fill="#4C566A" x="760" y="305" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9">Nordic.nvim</text>

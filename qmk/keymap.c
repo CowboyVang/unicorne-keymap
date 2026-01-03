@@ -39,6 +39,7 @@ const uint16_t PROGMEM combo_redo[] = {KC_C, KC_D, COMBO_END};         // C + D 
 const uint16_t PROGMEM combo_paste_plain[] = {KC_D, KC_V, COMBO_END};  // D + V = Cmd+Shift+V (Bottom row)
 // Left Hand - Diagonal
 const uint16_t PROGMEM combo_bspc[] = {KC_F, KC_T, COMBO_END};         // F + T = Backspace (Top middle + Home index)
+const uint16_t PROGMEM combo_paste[] = {KC_S, KC_D, COMBO_END};        // S + D = Cmd+V Paste (Home middle + Bottom index)
 // Right Hand - Vertical
 const uint16_t PROGMEM combo_pipe[] = {KC_U, KC_E, COMBO_END};         // U + E = Pipe (Middle vertical)
 const uint16_t PROGMEM combo_backtick[] = {KC_Y, KC_I, COMBO_END};     // Y + I = Backtick (Ring vertical)
@@ -61,6 +62,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_redo, G(KC_Y)),            // C + D = Redo
     COMBO(combo_paste_plain, G(S(KC_V))),  // D + V = Paste without format (Cmd+Shift+V)
     COMBO(combo_bspc, KC_BSPC),            // F + T = Backspace
+    COMBO(combo_paste, G(KC_V)),           // S + D = Paste (Cmd+V)
     COMBO(combo_capsword, CW_TOGG),        // P + T = Caps Word Toggle
     // Right Hand
     COMBO(combo_pipe, S(KC_BSLS)),         // U + E = Pipe |
