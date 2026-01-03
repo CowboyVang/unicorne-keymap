@@ -34,12 +34,13 @@ const uint16_t PROGMEM combo_esc[] = {KC_W, KC_R, COMBO_END};          // W + R 
 const uint16_t PROGMEM combo_tab[] = {KC_F, KC_S, COMBO_END};          // F + S = Tab (Middle vertical)
 // Left Hand - Horizontal
 const uint16_t PROGMEM combo_del[] = {KC_F, KC_P, COMBO_END};          // F + P = Delete (Top row)
-const uint16_t PROGMEM combo_undo[] = {KC_X, KC_C, COMBO_END};         // X + C = Cmd+Z (Bottom row)
-const uint16_t PROGMEM combo_redo[] = {KC_C, KC_D, COMBO_END};         // C + D = Cmd+Y (Bottom row)
+const uint16_t PROGMEM combo_undo[] = {KC_R, KC_F, COMBO_END};         // R + F = Cmd+Z Undo (Home row)
+const uint16_t PROGMEM combo_copy[] = {KC_X, KC_C, COMBO_END};         // X + C = Cmd+C Copy (Bottom row)
+const uint16_t PROGMEM combo_paste[] = {KC_C, KC_D, COMBO_END};        // C + D = Cmd+V Paste (Bottom row)
 const uint16_t PROGMEM combo_paste_plain[] = {KC_D, KC_V, COMBO_END};  // D + V = Cmd+Shift+V (Bottom row)
 // Left Hand - Diagonal
 const uint16_t PROGMEM combo_bspc[] = {KC_F, KC_T, COMBO_END};         // F + T = Backspace (Top middle + Home index)
-const uint16_t PROGMEM combo_paste[] = {KC_S, KC_D, COMBO_END};        // S + D = Cmd+V Paste (Home middle + Bottom index)
+const uint16_t PROGMEM combo_redo[] = {KC_R, KC_C, COMBO_END};         // R + C = Cmd+Y Redo (Home ring + Bottom middle)
 // Right Hand - Vertical
 const uint16_t PROGMEM combo_pipe[] = {KC_U, KC_E, COMBO_END};         // U + E = Pipe (Middle vertical)
 const uint16_t PROGMEM combo_backtick[] = {KC_Y, KC_I, COMBO_END};     // Y + I = Backtick (Ring vertical)
@@ -54,16 +55,19 @@ const uint16_t PROGMEM combo_capsword[] = {KC_P, KC_T, COMBO_END};     // P + T 
 const uint16_t PROGMEM combo_minimize[] = {KC_W, KC_F, COMBO_END};     // W + F = Cmd+M (Minimize)
 
 combo_t key_combos[COMBO_COUNT] = {
-    // Left Hand
+    // Left Hand - Vertical
     COMBO(combo_esc, KC_ESC),              // W + R = Escape
     COMBO(combo_tab, KC_TAB),              // F + S = Tab
-    COMBO(combo_del, KC_DEL),              // F + P = Delete
-    COMBO(combo_undo, G(KC_Z)),            // X + C = Undo
-    COMBO(combo_redo, G(KC_Y)),            // C + D = Redo
-    COMBO(combo_paste_plain, G(S(KC_V))),  // D + V = Paste without format (Cmd+Shift+V)
-    COMBO(combo_bspc, KC_BSPC),            // F + T = Backspace
-    COMBO(combo_paste, G(KC_V)),           // S + D = Paste (Cmd+V)
     COMBO(combo_capsword, CW_TOGG),        // P + T = Caps Word Toggle
+    // Left Hand - Horizontal
+    COMBO(combo_del, KC_DEL),              // F + P = Delete
+    COMBO(combo_undo, G(KC_Z)),            // R + F = Undo
+    COMBO(combo_copy, G(KC_C)),            // X + C = Copy
+    COMBO(combo_paste, G(KC_V)),           // C + D = Paste
+    COMBO(combo_paste_plain, G(S(KC_V))),  // D + V = Paste without format
+    // Left Hand - Diagonal
+    COMBO(combo_bspc, KC_BSPC),            // F + T = Backspace
+    COMBO(combo_redo, G(KC_Y)),            // R + C = Redo
     // Right Hand
     COMBO(combo_pipe, S(KC_BSLS)),         // U + E = Pipe |
     COMBO(combo_backtick, KC_GRV),         // Y + I = Backtick `

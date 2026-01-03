@@ -2,6 +2,22 @@
 
 All notable changes to the pure QMK keymap for Boardsource Unicorne.
 
+## [2.0.17] - 2026-01-03
+
+### Added
+- **X+C Combo** - New horizontal combo for `Cmd+C` (Copy)
+  - Total combos now 17
+
+### Changed
+- **Edit Combos Reorganized** - Improved ergonomics for cut/copy/paste/undo/redo:
+  - R + F = Undo (was X+C)
+  - R + C = Redo (was C+D, now diagonal)
+  - X + C = Copy (new)
+  - C + D = Paste (was S+D)
+  - Removed S+D combo
+
+---
+
 ## [2.0.16] - 2026-01-01
 
 ### Added

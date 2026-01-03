@@ -46,7 +46,7 @@ The chording efficiency of this layout relies on specific low-profile hardware t
 | NKRO | Enabled | |
 | Extrakeys | Enabled | |
 | RGB Matrix | Enabled | Off by default (val=0), 54 LEDs |
-| Combos | Enabled | 16 code-defined combos |
+| Combos | Enabled | 17 code-defined combos |
 | Key Overrides | Enabled | Bracket pair mappings |
 | Caps Word | Enabled | 5s idle timeout |
 | Auto Shift | Enabled | Custom whitelist: ; ' / - = |
@@ -209,12 +209,13 @@ The chording efficiency of this layout relies on specific low-profile hardware t
 | F + S | `KC_TAB` | Vertical | Tab (Middle) |
 | P + T | `CW_TOGG` | Vertical | Caps Word Toggle (Index) |
 | F + P | `KC_DEL` | Horizontal | Delete (Top row) |
-| X + C | `G(KC_Z)` | Horizontal | Undo (Bottom row) |
-| C + D | `G(KC_Y)` | Horizontal | Redo (Bottom row) |
+| R + F | `G(KC_Z)` | Horizontal | Undo (Home row) |
+| X + C | `G(KC_C)` | Horizontal | Copy (Bottom row) |
+| C + D | `G(KC_V)` | Horizontal | Paste (Bottom row) |
 | D + V | `G(S(KC_V))` | Horizontal | Paste without format (Cmd+Shift+V) |
-| W + F | `G(KC_M)` | Diagonal | Minimize window (Cmd+M) |
+| W + F | `G(KC_M)` | Vertical | Minimize window (Cmd+M) |
 | F + T | `KC_BSPC` | Diagonal | Backspace |
-| S + D | `G(KC_V)` | Diagonal | Paste (Cmd+V) |
+| R + C | `G(KC_Y)` | Diagonal | Redo (Home ring → Bottom middle) |
 | **Right Hand** ||||
 | U + E | `S(KC_BSLS)` | Vertical | Pipe `\|` (Middle) |
 | Y + I | `KC_GRV` | Vertical | Backtick `` ` `` (Ring) |
